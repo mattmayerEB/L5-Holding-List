@@ -16,32 +16,11 @@ function saveEntries(entries) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
 }
 
-// Add entry and refresh UI
+// Add entry to storage
 function addEntry(entry) {
     const entries = getEntries();
     entries.push(entry);
     saveEntries(entries);
-    renderEntries();
-}
-
-// Render entries list
-function renderEntries() {
-    const entries = getEntries();
-    const listEl = document.getElementById('entriesList');
-    const countEl = document.getElementById('entryCount');
-
-    countEl.textContent = entries.length;
-
-    if (entries.length === 0) {
-        listEl.innerHTML = '<p class="empty-state">No entries yet. Submit the form to add entries.</p>';
-        return;
-    }
-
-    listEl.innerHTML = entries.map((e) => `
-        <div class="entry-item">
-            <strong>${e.loanId}</strong> — ${e.user || '—'} | Quote: ${e.quoteId || '—'} | ${e.customerName} | ${e.cancelReason} | Fee: ${e.cancelFee || '—'} | Date: ${e.submittedAt || '—'}
-        </div>
-    `).join('');
 }
 
 // Export entries to CSV (opens in Excel)
@@ -124,8 +103,3 @@ document.getElementById('retentionForm').addEventListener('submit', async functi
         alert('Submit failed: ' + msg + hint);
     }
 });
-
-document.getElementById('exportBtn').addEventListener('click', exportToCSV);
-
-// Initial render
-renderEntries();
