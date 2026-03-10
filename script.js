@@ -102,7 +102,7 @@ document.getElementById('retentionForm').addEventListener('submit', async functi
         const response = await fetch(FLOW_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'text/plain'
             },
             body: JSON.stringify(entry)
         });
