@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retention Tracking Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Retention Tracker</h1>
+            <p class="subtitle">Track cancellations and retention data</p>
+        </header>
+
+        <form id="retentionForm">
+            <div class="form-group">
+                <label for="user">Agent</label>
+                <select id="user" name="user" required>
+                    <option value="">-- Select user --</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Adriana DeLaCruz Lopez">Adriana DeLaCruz Lopez</option>
+                    <option value="Crystal Fogel">Crystal Fogel</option>
+                    <option value="Deborah Thompkins">Deborah Thompkins</option>
+                    <option value="Jacob Kolokolo">Jacob Kolokolo</option>
+                    <option value="Jonathan Williams">Jonathan Williams</option>
+                    <option value="Keenon Morrison">Keenon Morrison</option>
+                    <option value="MARCO CARMONA">MARCO CARMONA</option>
+                    <option value="Miguel Jacinto">Miguel Jacinto</option>
+                    <option value="Roberto Carlos Puga Hernandez">Roberto Carlos Puga Hernandez</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="loanId">Loan ID</label>
+                <input type="text" id="loanId" name="loanId" placeholder="Enter loan ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quoteId">Quote ID</label>
+                <input type="text" id="quoteId" name="quoteId" placeholder="Enter quote ID">
+            </div>
+
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter customer name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cancelReason">Cancel Reason</label>
+                <select id="cancelReason" name="cancelReason" required>
+                    <option value="">-- Select reason --</option>
+                    <option value="30-Day Review Period">30-Day Review Period</option>
+                    <option value="Bad Reputation">Bad Reputation</option>
+                    <option value="Buyers Remorse">Buyers Remorse</option>
+                    <option value="Claim Denial">Claim Denial</option>
+                    <option value="Cost Related">Cost Related</option>
+                    <option value="Coverage Elsewhere">Coverage Elsewhere</option>
+                    <option value="Duplicate Sale">Duplicate Sale</option>
+                    <option value="Ineligible Vehicle">Ineligible Vehicle</option>
+                    <option value="Misrepresentation by Closer">Misrepresentation by Closer</option>
+                    <option value="Non Payment">Non Payment</option>
+                    <option value="Payment Processing Issue">Payment Processing Issue</option>
+                    <option value="Policy Misunderstanding">Policy Misunderstanding</option>
+                    <option value="Sold/Totaled">Sold/Totaled</option>
+                    <option value="Undisclosed Policy">Undisclosed Policy</option>
+                    <option value="Unused Benefit">Unused Benefit</option>
+                    <option value="Moved In-House">Moved In-House</option>
+                    <option value="Upgrade/Downgrade/Transfer">Upgrade/Downgrade/Transfer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cancelFee">Cancel Fee</label>
+                <select id="cancelFee" name="cancelFee">
+                    <option value="">-- Select --</option>
+                    <option value="Successful">Successful</option>
+                    <option value="Declined">Declined</option>
+                    <option value="Refused">Refused</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" id="exportBtn" class="btn btn-secondary">Export to Excel (CSV)</button>
+            </div>
+        </form>
+
+        <section class="entries-section">
+            <h2>Tracked Entries <span id="entryCount" class="badge">0</span></h2>
+            <div id="entriesList" class="entries-list">
+                <p class="empty-state">No entries yet. Submit the form to add entries.</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
